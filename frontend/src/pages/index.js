@@ -1,21 +1,26 @@
 import Head from "next/head";
 import Image from "next/image";
 import { Inter } from "next/font/google";
-import styles from "andrew/styles/Home.module.css";
+import styles from "src/styles/Home.module.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home({ posts }) {
+  console.log(posts);
   return (
-    <div>
-      {/* loop over the posts and show them */}
-      {posts &&
-        Array.prototype.map((post) => (
-          <div key={post.id}>
-            <h2>{post.Title}</h2>
-          </div>
-        ))}
-    </div>
+    <>
+      <div>
+        {/* loop over the posts and show them */}
+        {posts &&
+          posts.data.map((element) => (
+            <div key={element.id}>
+              <h2>{element.attributes.Title}</h2>
+              <div>{element.attributes.Content}</div>
+            </div>
+          ))}
+      </div>
+      <div>Hi Everybody</div>
+    </>
   );
 }
 
@@ -25,7 +30,7 @@ export async function getStaticProps() {
 
   const posts = await res.json();
 
-  console.log(posts);
+  // console.log(posts);
 
   return {
     props: { posts },
