@@ -21,12 +21,12 @@
     "Authors": {
       "type": "relation",
       "relation": "oneToMany",
-      "target": "admin::user"
+      "target": "plugin::users-permissions.user"
     },
     "Cover": {
       "type": "media",
       "multiple": false,
-      "required": false,
+      "required": true,
       "allowedTypes": [
         "images"
       ]

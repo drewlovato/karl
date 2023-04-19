@@ -16,6 +16,13 @@ export default function Home({ posts }) {
             <div key={element.id}>
               <h2>{element.attributes.Title}</h2>
               <div>{element.attributes.Content}</div>
+              <div>{element.attributes.createdAt}</div>
+              {/* Maps through the authors arttribute for subsidary keys */}
+              {element.attributes.Authors.data.map((a) => (
+                <div key={a.attributes.id}>
+                  <div>{a.attributes.username}</div>
+                </div>
+              ))}
             </div>
           ))}
       </div>
@@ -26,7 +33,7 @@ export default function Home({ posts }) {
 
 export async function getStaticProps() {
   // get post from api
-  const res = await fetch("http://localhost:1337/api/posts");
+  const res = await fetch("http://localhost:1337/api/posts?populate=*");
 
   const posts = await res.json();
 
