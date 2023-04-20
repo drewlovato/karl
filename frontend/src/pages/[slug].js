@@ -1,38 +1,3 @@
-// export default function Post({ post }) {
-//   return <div>{post.Slug}</div>;
-// }
-
-// // tell next.js how many pages there are
-// export async function getStaticPaths({ posts }) {
-//   const res = await fetch(`http://localhost:1337/api/posts?Slug=`);
-//   const data = await res.json();
-
-//   const paths = posts.data.map((element) => {
-//     return {
-//       params: { slug: element.id.attributes.toString() },
-//     };
-//   });
-
-//   return {
-//     paths,
-//     fallback: false,
-//   };
-// }
-
-// // // for each individual page: get the data for that page
-// export async function getStaticProps() {
-//   // get post from api
-//   const res = await fetch("http://localhost:1337/api/posts?populate=*");
-
-//   const posts = await res.json();
-
-//   // console.log(posts);
-
-//   return {
-//     props: { posts },
-//   };
-// }
-
 import React from "react";
 
 export async function getStaticPaths() {
