@@ -2,6 +2,7 @@ import Head from "next/head";
 import Image from "next/image";
 import { Inter } from "next/font/google";
 import styles from "src/styles/Home.module.css";
+import Layout from "../components/Layout";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -9,6 +10,10 @@ export default function Home({ posts }) {
   console.log(posts);
   return (
     <>
+      <Layout>
+        <h1>Welcome to my website</h1>
+        <p>Here is some content...</p>
+      </Layout>
       <div>
         {/* loop over the posts and show them */}
         {posts &&
